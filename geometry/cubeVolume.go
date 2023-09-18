@@ -1,6 +1,13 @@
 package geometry
 
-func CubeVolume(s int) int {
+import "errors"
+
+func CubeVolume(s int) (int, error) {
 	volume := s * s * s
-	return volume
+	if s != 0 {
+		return volume, nil
+	} else {
+		return 0, errors.New("Zero length edge is not allowed")
+	}
+
 }
